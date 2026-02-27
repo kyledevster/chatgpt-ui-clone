@@ -1,0 +1,863 @@
+@font-face {
+  font-family: 'outfit';
+  src: url('../fonts/outfit.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+:root {
+  --bg1: #303030;
+  --bg2: #353535;
+  --bg3: #212121;
+  --bg4: #181818;
+  --color1: #fff;
+  --color2: #afafaf;
+  --hover-bg: #ffffff1a;
+  --active-bg: #ffffff0f;
+  --border-color: #3c3c3c;
+  --title-bg: #000;
+  --title-color: #fff;
+  --accent-color: #0169cc;
+  --accent-hover-color: #0e579d;
+}
+
+body {
+  background-color: var(--bg3);
+  color: var(--color1);
+  font-family: "outfit";
+  display: flex;
+  height: 100%;
+}
+
+/* --------- GENERALS ------------- */
+/* upgrade btn */
+.upgrade-btn {
+  font-family: 'outfit';
+  font-size: .75rem;
+  font-weight: 500;
+  padding: .38rem .6rem;
+  border-radius: 1.5rem;
+  background-color: var(--bg3);
+  color: var(--color1);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.upgrade-btn:hover {
+  background-color: var(--bg1);
+}
+
+/* title */
+.title::after {
+  width: max-content;
+  font-size: .8rem;
+  background-color: var(--title-bg);
+  color: var(--color1);
+  padding: .3rem .5rem;
+  border-radius: .5rem;
+  display: none;
+  position: absolute;
+  z-index: 10;
+}
+
+.title:hover::after {
+  display: inline-block;
+}
+
+/* icon */
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .4rem;
+  border-radius: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.icon:hover {
+  background-color: var(--hover-bg);
+}
+
+.icon > svg {
+  fill: var(--color1);
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* divider */
+.divider {
+  margin: .2rem auto;
+  height: 2px;
+  width: 85%;
+  background-color: var(--hover-bg);
+}
+
+/* MAIN  */
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* SIDEBAR ICON CHECKBOX */
+#sidebar-icon-checkbox {
+  display: none;
+}
+
+/* SIDEBAR ICON ON SMALL SCREEN */
+.small-screen-sidebar-icon {
+  display: none;
+  padding: .3rem .5rem;
+  border-radius: .5rem;
+  width: fit-content;
+  height: fit-content;
+  margin: .5rem -.3rem .5rem .3rem;
+}
+
+.small-screen-sidebar-icon:hover {
+  background-color: var(--hover-bg);
+}
+
+.small-screen-sidebar-icon > svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: var(--color2);
+}
+
+/* ----------------------------- SIDEBAR STYLES --------------------------- */
+.sidebar {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .4rem;
+  width: 21rem;
+  background-color: var(--bg4);
+  min-width: fit-content;
+  user-select: none;
+  overflow-y: auto;
+  position: relative;
+}
+
+.sidebar > .icons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sidebar > .icons > div {
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: .2rem;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar > .icons > div:hover {
+  background-color: var(--hover-bg);
+}
+
+.sidebar > .icons > .chatgpt {
+  cursor: pointer;
+}
+
+.sidebar > .icons > .chatgpt > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--color1);
+}
+
+.sidebar > .icons > .collapse {
+  cursor: e-resize;
+  position: relative;
+}
+
+.sidebar > .icons > .collapse::after {
+  content: 'Close sidebar';
+  top: calc(100% + 1rem);
+  right: 0;
+}
+
+.sidebar > .icons > .collapse svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: var(--color2);
+}
+
+.sidebar > .icons > .close-icon {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar > .icons > .close-icon > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--color1);
+  margin: .05rem;
+}
+
+/*  --------------------- NAV MENU ------------------- */
+.sidebar > .nav-menu {
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.sidebar > .nav-menu > .card {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  width: 100%;
+  padding: .5rem .6rem;
+  border-radius: .8rem;
+  position: relative;
+}
+
+.sidebar > .nav-menu > .card:hover {
+  background-color: var(--hover-bg);
+}
+
+.sidebar > .nav-menu > .card > .card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar > .nav-menu > .card > .card-icon > svg {
+  width: 1.22rem;
+  height: 1.22rem;
+  fill: var(--color1);
+}
+
+.sidebar > .nav-menu > .card > .card-text {
+  font-size: .9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar > .nav-menu > .new-chat:hover::after {
+  content: 'Ctrl + Shift + O';
+  position: absolute;
+  right: 1rem;
+  color: var(--color2);
+}
+
+.sidebar > .nav-menu > .search-chats:hover::after {
+  content: 'Ctrl + K';
+  position: absolute;
+  right: 1rem;
+  color: var(--color2);
+}
+
+.sidebar > .nav-menu > .codex:hover > .arrow {
+  display: flex;
+}
+
+.sidebar > .nav-menu > .codex > .arrow {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar > .nav-menu > .codex > .arrow > svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: var(--color2);
+}
+
+/* ----------- */
+/* ---------------YOUR CHATS--------- */
+.your-chats {
+  align-self: flex-start;
+  width: 100%;
+}
+
+.your-chats > details > summary::marker {
+  content: "";
+}
+
+.your-chats > details > summary {
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+  padding-left: .5rem;
+}
+
+.your-chats > details > summary > span {
+  color: var(--color2);
+}
+
+.your-chats > details > summary > .dropdown-icon {
+  width: .8rem;
+  height: .8rem;
+  fill: var(--color2);
+}
+
+.your-chats > details:open > summary > .dropdown-icon {
+  transform: rotate(90deg);
+}
+
+.your-chats > details > .chats {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: .5rem;
+}
+
+.your-chats > details > .chats > .card {
+  padding: .4rem .6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: .5rem;
+  font-weight: 300;
+}
+
+.your-chats > details > .chats > .card:hover {
+  background-color: var(--hover-bg);
+}
+
+.your-chats > details > .chats > .card:has(.card-options-icon:hover) {
+  background-color: transparent;
+}
+
+.your-chats > details > .chats > .card:hover > .card-text {
+  max-width: 12.2rem;
+}
+
+.your-chats > details > .chats > .card > .card-text {
+  max-width: 14rem;
+  font-size: .87rem;
+  width: 100%;
+  height: 1.5rem;
+  text-wrap: nowrap;
+  align-content: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.your-chats > details > .chats > .card:hover > .card-options-icon {
+  display: flex;
+}
+
+.your-chats > details > .chats > .card > .card-options-icon {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-left: .5rem;
+}
+
+.your-chats > details > .chats > .card > .card-options-icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: var(--color1);
+}
+
+/* ------------- */
+/*---------- PROFILE---------- */
+.sidebar > .profile-wrapper {
+  width: 100%;
+  border-top: 1px solid var(--active-bg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--bg4);
+}
+
+.sidebar > .profile-wrapper > .profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .25rem;
+  margin: .5rem;
+  padding: .4rem;
+  border-radius: .8rem;
+}
+
+.sidebar > .profile-wrapper > .profile > .hoverable-elements {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar > .profile-wrapper > .profile > .hoverable-elements > img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+.sidebar > .profile-wrapper > .profile > .hoverable-elements > .description {
+  padding: 0 .4rem;
+  width: 100%;
+}
+
+.sidebar > .profile-wrapper > .profile:has(.hoverable-elements:hover) {
+  background-color: var(--hover-bg);
+}
+
+.sidebar > .profile-wrapper > .profile > .hoverable-elements > .description > h3 {
+  text-wrap: nowrap;
+  font-size: .9rem;
+  font-weight: 300;
+  margin-bottom: .1rem;
+}
+
+.sidebar > .profile-wrapper > .profile > .hoverable-elements > .description > p {
+  font-size: .7rem;
+  font-weight: 300;
+}
+
+.sidebar > .profile-wrapper > .profile > .hoverable-elements > .upgrade-btn {
+  margin-right: 1rem;
+}
+
+/* ------------- */
+/* ----------------------------- HEADER STYLES ---------------------------- */
+header {
+  padding: .5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+
+header > .chatgpt-menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+header > .chatgpt-menu > input {
+  display: none;
+}
+
+header > .chatgpt-menu > .chatgpt {
+  height: fit-content;
+  padding: .4rem .7rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header > .chatgpt-menu > .chatgpt:hover {
+  background-color: var(--hover-bg);
+}
+
+header > .chatgpt-menu > .chatgpt > span {
+  letter-spacing: .5px;
+  display: flex;
+  justify-content: center;
+}
+
+header > .chatgpt-menu > .chatgpt > svg {
+  display: inline-block;
+  fill: var(--color2);
+  width: fit-content;
+  height: 1rem;
+  margin-left: .5rem;
+}
+
+/* menu */
+/* menu toggle on */
+header > .chatgpt-menu > input:checked ~ .menu {
+  display: block;
+}
+
+header > .chatgpt-menu > .menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: .4rem;
+  background-color: var(--bg2);
+  border-radius: 1rem;
+  width: max-content;
+  box-shadow: 2px 5px 20px #00000080;
+}
+
+header > .chatgpt-menu > .menu > .card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem;
+  border-radius: .8rem;
+  cursor: pointer;
+}
+
+header > .chatgpt-menu > .menu > .card:hover {
+  background-color: var(--hover-bg);
+}
+
+header > .chatgpt-menu > .menu > .card:active {
+  background-color: var(--active-bg);
+}
+
+header > .chatgpt-menu > .menu > .card > .card-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+header > .chatgpt-menu > .menu > .card > .card-icon > svg {
+  fill: var(--color1);
+}
+
+header > .chatgpt-menu > .menu > .card > .description {
+  width: max-content;
+}
+
+header > .chatgpt-menu > .menu > .card > .description h3 {
+  font-size: .8rem;
+  font-weight: normal;
+}
+
+header > .chatgpt-menu > .menu > .card > .description p {
+  font-size: .8rem;
+  color: var(--color2);
+  margin-top: .2rem;
+}
+
+header > .chatgpt-menu > .menu > .card > .tick {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+header > .chatgpt-menu > .menu > .card > .tick > svg {
+  width: 1.2rem;
+  fill: var(--color1);
+}
+
+/* Get Plus Button */
+header > .get-plus {
+  padding: .5rem .7rem;
+  border-radius: 2rem;
+  background-color: #373669;
+  height: 2.5rem;
+  align-content: center;
+  font-size: .9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+header > .get-plus:hover {
+  background-color: #454479;
+}
+
+header > .get-plus svg {
+  fill: var(--color1);
+  height: 1rem;
+  width: 1rem;
+  vertical-align: middle;
+}
+
+/* header .get-plus span {*/
+header > .chat-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .4rem;
+}
+
+/*--- group chat-icon---- */
+header > .chat-options > .group-chat::after {
+  content: 'Start a group chat';
+  top: calc(100% + 1rem);
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/*--- temperary chat icon--- */
+header > .chat-options > .temp-chat::after {
+  content: 'Turn on temperary chat';
+  top: 150%;
+  left: -50%;
+  transform: translate(-55%);
+}
+
+/* -------------------- HEADER STYLES - END -------------- */
+main > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+
+main > section > h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-top: 7.8rem;
+}
+
+main > section > .search-bar {
+  padding: 0 .8rem;
+  border-radius: 1.8rem;
+  background-color: var(--bg2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 83%;
+  margin: 3rem 3rem 0;
+  box-shadow: 5px 5px 25px #00000010;
+  position: relative;
+}
+
+/* input - checkbox */
+main > section > .search-bar > #add-files-checkbox {
+  display: none;
+}
+
+/* add files icon */
+main > section > .search-bar > .add-files-icon:active {
+  background-color: var(--active-bg);
+}
+
+main > section > .search-bar:not(:has(input:checked)) > .add-files-icon::after {
+  content: 'Add files and more';
+  top: calc(100% + 1rem);
+}
+
+/* -------------- */
+/* menu */
+main > section > .search-bar > input:checked+.add-files-icon {
+  background-color: var(--active-bg);
+}
+
+main > section > .search-bar > input:checked ~ .menu {
+  display: block;
+}
+
+main > section > .search-bar > .menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  padding: .4rem;
+  background-color: var(--bg2);
+  left: 0;
+  width: 40%;
+  min-width: max-content;
+  border-radius: .8rem;
+  user-select: none;
+  box-shadow: 0 0 25px #00000070
+}
+
+main > section > .search-bar > .menu > .card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: .9rem;
+  gap: .2rem;
+  padding: .3rem .4rem;
+  border-radius: .6rem;
+}
+
+main > section > .search-bar > .menu > .card:hover {
+  background-color: var(--hover-bg);
+}
+
+main > section > .search-bar > .menu > .card:active {
+  background-color: var(--active-bg);
+}
+
+main > section > .search-bar > .menu > .card > .card-icon {
+  display: flex;
+  align-items: center;
+  padding: .2rem;
+}
+
+main > section > .search-bar > .menu > .card > .card-icon > svg {
+  fill: var(--color1);
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+main > section > .search-bar > .menu > .card > .card-text {
+  font-size: .9rem;
+}
+
+main > section > .search-bar > .menu > .more > .right-headed-arrow {
+  margin-left: auto;
+}
+
+main > section > .search-bar > .menu > .more > .right-headed-arrow > svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: var(--color1);
+}
+
+/* more menu */
+main > section > .search-bar > .menu > .more:hover + .more-menu,
+main > section > .search-bar > .menu > .more-menu:hover {
+  height: auto;
+  /* padding: .4rem; */
+}
+
+main > section > .search-bar > .menu > .more-menu {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 30%;
+  left: calc(100% + 1px);
+  background-color: var(--bg2);
+  width: 80%;
+  min-width: max-content;
+  border-radius: .8rem;
+  box-shadow: 0 0 30px #00000010;
+  transition: 12s;
+}
+
+main > section > .search-bar > .menu > .more-menu > .card {
+  margin: 0 .4rem;
+  padding: .5rem .6rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: .5rem;
+  cursor: pointer;
+  font-size: .9rem;
+}
+main > section > .search-bar > .menu > .more-menu > .card:hover {
+  background-color: var(--hover-bg);
+}
+main > section > .search-bar > .menu > .more-menu > .card:active {
+  background-color: var(--active-bg);
+}
+
+main > section > .search-bar > .menu > .more-menu > .card:first-child {
+  margin-top: .4rem;
+}
+main > section > .search-bar > .menu > .more-menu > .card:last-child {
+  margin-bottom: .4rem;
+}
+
+
+main > section > .search-bar > .menu > .more-menu > .card > .card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: .4rem;
+}
+
+main > section > .search-bar > .menu > .more-menu > .card > .card-icon > svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: white;
+}
+
+/* ---------- */
+main > section > .search-bar > .search-input {
+  background-color: transparent;
+  color: var(--color1);
+  border: none;
+  font-size: 1rem;
+  font-family: 'outfit';
+  padding: 1.2rem .2rem;
+  outline: none;
+  margin-left: .2rem;
+  width: 100%;
+}
+
+/* dictate icon */
+main > section > .search-bar > .dictate-icon {
+  margin-right: .5rem;
+}
+
+main > section > .search-bar > .dictate-icon:active {
+  background-color: var(--active-bg);
+}
+
+main > section > .search-bar > .dictate-icon::after {
+  content: 'Dictate';
+  top: calc(100% + 1rem);
+}
+
+/* -------- */
+/* use voice icon */
+main > section > .search-bar > .use-voice-icon {
+  background-color: var(--accent-color);
+}
+
+main > section > .search-bar > .use-voice-icon:hover {
+  background-color: var(--accent-hover-color);
+}
+
+main > section > .search-bar > .use-voice-icon::after {
+  content: 'Use voice';
+  top: calc(100% + 1rem);
+}
+
+@media (max-width: 767px) {
+  .small-screen-sidebar-icon {
+    display: block;
+  }
+
+  #sidebar-icon-checkbox:checked ~ .sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 15rem;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .sidebar > .icons > .collapse {
+    display: none;
+  }
+
+  .sidebar > .icons > .close-icon {
+    display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  main > section > h2 {
+    margin-top: auto;
+  }
+
+  main > section > .search-bar {
+    margin: auto 1rem 0;
+    width: 100%;
+  }
+
+  main > section > .search-bar > .menu {
+    top: auto;
+    bottom: 100%;
+  }
+}
